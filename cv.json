@@ -1,0 +1,279 @@
+var cv = {
+
+	"options" : {
+
+	},
+
+	"header" : {
+		"name" : "Arthur Brongniart",
+		"birthDate" : "01/03/1991",
+		"mail" : "arthur@arthur-brongniart.fr",
+		"phone" : "(+33)6 98 68 67 44",
+
+		"ext" : {
+			"linkedin" : "http://www.linkedin.com/pub/arthur-brongniart/65/2b/ab8",
+			"github" : "https://github.com/Platane",
+		},
+
+		"portefolio" : "http://arthur-brongniart.fr/",
+		"bio" : "I like where the web is going, I wish to be part of the incoming changes."
+	},
+
+	"xp" : [
+
+		{
+			"title" : "Academic project",
+			"localisation" : "Nancy",
+			"at" : "Prometheus",
+			"at@" : "https://prometheuscomputing.com/",
+			"from" : "01/10/2013",
+			"to" : "01/03/2014",
+
+			"subject" : "realisation of a collaborative UML diagramm editor, with three budies",
+			"info" : "Use websokect to ensure the collaboration between users, web app based on AngularJs" 
+
+		},
+
+		{
+			"title" : "Internship",
+			"localisation" : "Nancy",
+			"at" : "VersysMind",
+			"at@" : "http://www.versusmind.eu/",
+			"from" : "01/04/2013",
+			"to" : "30/09/2013",
+
+			"subject" : "worked on a project management web app",
+			"info" :  "Implemented new features, optimized JS performances"
+		},
+
+		{
+			"title" : "External Contract",
+			"localisation" : "Nancy",
+			"at" : "INRIA",
+			"at@" : "http://inriamecsci.github.io/#!/grains/Turing-2D",
+			"from" : "01/11/2012",
+			"to" : "01/04/2013",
+
+			"subject" : "developed a html game which expose the research of the team on the 2D Turing Engine",
+			"info" : "Many interactions, performance was a critical issue" 
+
+		},
+
+		{
+			"title" : "Academic project",
+			"localisation" : "Nancy",
+			"at" : "CVCE",
+			"at@" : "http://www.cvce.eu/",
+			"from" : "01/10/2012",
+			"to" : "01/03/2013",
+
+			"subject" : "realisation of a online historical map editor, with three budies",
+			"info" : "Store the map atomic composant in a mongoDB, arrange them into a map with and add style with a css - like language. The app is based on backbone and use Leaflet" 
+
+		},
+
+		{
+			"title" : "Intership",
+			"localisation" : "Lille",
+			"at" : "Encre Nomade",
+			"from" : "01/06/2012",
+			"to" : "01/09/2012",
+
+			"subject" : "realisation of a online historical map editor, with three budies",
+			"info" : "Store the map atomic composant in a mongoDB, arrange them into a map with and add style with a css - like language. The app is based on backbone and use Leaflet" 
+
+		},
+	],
+
+	"training" : [
+
+		{
+			"title" : "Engineer student",
+			"sub title" : "computer science school, software engineering section",
+			"at" : "Esial",
+			"localisation" : "Nancy",
+			"from" : "01/09/2010",
+			"to" : "01/09/2014",
+		},
+
+		{
+			"title" : "intensive training course",
+			"sub title" : "preparing for french \"Grandes Ecoles\", Math and Physic section, computer science option",
+			"at" : "Henri Wallon",
+			"localisation" : "Valenciennes",
+			"from" : "01/09/2008",
+			"to" : "01/09/2010",
+		},
+	],
+
+	"literal skills" : [
+		{ 
+			"subsection" : "IT skills",
+			"s" : [
+				{
+					"title" : "web langages",
+					"subject" : "solid experiences with html / Js throught several decisive projects"
+				},
+
+				{
+					"title" : "other langages",
+					"subject" : "Python, Node, Java, C, php",
+					"info" : "validatd in various academic projects"
+				}
+			]
+		},
+
+		{ 
+			"subsection" : "languages",
+			"s" : [
+				{
+					"title" : "English",
+					"subject" : "advanced level",
+					"info" : "TOEIC graduated with a 915 score"
+				},
+				{
+					"title" : "French",
+					"subject" : "mother tongue"
+				}
+			]
+		},
+
+		{ 
+			"subsection" : "organisation",
+			"s" : [
+				{
+					"title" : "",
+					"subject" : "sensibilized to managing technics",
+					"info" :  "SCRUM, Xp, ITIL"
+				}
+			]
+		}
+
+	],
+
+	"hobbies" : [
+		{ 
+			"subsection" : "video game",
+			"s":[
+				{
+					"title" : "play them",
+					"subject" : "I feel like a changement since technology is no longer a criteria and everybody can expose this idea, I like this"
+				},
+				{
+					"title" : "make them",
+					"subject" : "I did some game jam events and some personal projects"
+				},	
+			]
+		},
+
+		{
+			"title" : "drawing",
+			"subject" : "My pencil case never leave me!" 
+		},
+	],
+
+	"skills" : [
+		{
+			"tag" : "JavaScript",
+			"power" : 8,
+			"pertinance" : 10,
+		},
+
+		{
+			"tag" : "html",
+			"power" : 8,
+			"pertinance" : 10,
+		},
+
+		{
+			"tag" : "css",
+			"power" : 8,
+			"pertinance" : 7,
+		},
+
+		{
+			"tag" : "sass",
+			"power" : 6,
+			"pertinance" : 3,
+		},
+
+		{
+			"tag" : "python",
+			"power" : 6,
+			"pertinance" : 8,
+		},
+
+		{
+			"tag" : "Java",
+			"power" : 6,
+			"pertinance" : 7,
+		},
+
+		{
+			"tag" : "Math & Phy",
+			"power" : 7,
+			"pertinance" : 8,
+		},
+
+		{
+			"tag" : "Angular",
+			"power" : 6,
+			"pertinance" : 4,
+		},
+
+		{
+			"tag" : "backbone",
+			"power" : 8,
+			"pertinance" : 4,
+		},
+
+		{
+			"tag" : "jQuery",
+			"power" : 9,
+			"pertinance" : 5,
+		},
+
+		{
+			"tag" : "node",
+			"power" : 6,
+			"pertinance" : 5,
+		},
+
+		{
+			"tag" : "Algorithm",
+			"power" : 7,
+			"pertinance" : 4,
+		},
+
+		{
+			"tag" : "Design",
+			"power" : 7,
+			"pertinance" : 4,
+		},
+
+		{
+			"tag" : "Pencil drawing",
+			"power" : 6,
+			"pertinance" : 4,
+		},
+
+		{
+			"tag" : "Git",
+			"power" : 5,
+			"pertinance" : 5,
+		},
+
+		{
+			"tag" : "Flash",
+			"power" : 7,
+			"pertinance" : 3,
+		},
+
+		{
+			"tag" : "Ergonomy",
+			"power" : 6,
+			"pertinance" : 3,
+		},
+	],
+
+}

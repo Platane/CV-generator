@@ -1,0 +1,289 @@
+<html>
+		
+<link rel="stylesheet" href="styles/style.css" ></link>
+<script type="text/javascript" src="cv.json"></script>
+<script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/mustache/mustache.js"></script>
+<script type="text/javascript" src="scripts/cloudMaker.js"></script>
+
+<script type="text/javascript">
+jQuery(function(){
+
+	var $cv=$('<div class="cv">')
+
+	var parseDate=function( s ){
+		var m = s.split('/')
+		return  new Date( m[2] , m[1] , m[0] )
+	}
+
+	var formateWhen=function( from , to ){
+		if( typeof(from) == 'string' )
+			from = parseDate( from )
+		if( typeof(to) == 'string' )
+			to = parseDate( to )
+
+		var length = Math.max( 1 , Math.round( ( to.getTime() - from.getTime() ) / 1000/60/60/24/30 ) )
+
+		if( length > 12 )
+			return from.getFullYear() + ' - ' + to.getFullYear()
+
+		return from.getFullYear() +'<span class="info"> ('+length+ ' month'+( length>1 ? 's' : '' )+')</span>'
+	}
+
+	var buildSection = function( renderItem , sectionName , json , sectionLabel ){
+		var items = function(l,deepness){
+			deepness = deepness || 1;
+			var $l = $()
+			for(var i=0;i<l.length;i++){
+				if( l[i].subsection ){
+					$l = $l.add(
+						$('<li class="subsection subsection-'+deepness+'">').append(
+							$('<span class="subsection-label">').text( l[i].subsection ),
+							$('<ul>').append( items(l[i].s , deepness+1 ) )
+						)
+					)
+				}else{
+					$l = $l.add(
+						renderItem( l[i] )
+					)
+				}
+			}
+			return $l
+		}
+
+		return 		$('<section class="'+sectionName+'-section">')
+		.append( 
+			$('<h1 class="section-label">'+( sectionLabel || sectionName )+'</h1>'),
+			$('<ul class="list">').append( items( json ) )
+		);
+	}
+
+	// build the header
+	var headerTpl = [
+		'<header class="header">',
+			'<div class="card">',
+				'<span class="name">{{firstName}} {{lastName}}</span>',
+				'<span class="age">{{age}} years old</span>',
+
+				'{{#mail}}',
+				'<span>',
+					'<span class="icon icon-mail"></span>',
+					'<a class="mail" href="mailto:{{mail}}">{{mail}}</a>',
+				'</span>',
+				'{{/mail}}',
+
+				
+				'{{#portefolio}}',
+				'<span>',
+					'<span class="icon icon-portefolio"></span>',
+					'<a class="portefolio" href="{{portefolio@}}">{{portefolio}}</a>',
+				'</span>',
+				'{{/portefolio}}',
+
+				'{{#phone}}',
+				'<span>',
+					'<span class="icon icon-phone"></span>',
+					'<span class="phone">{{phone}}</span>',
+				'</span>',
+				'{{/phone}}',
+			'</div>',
+			'<div class="quote">{{&bio}}</div>',
+		'</header>',
+	].join('')
+	var buildHeader=function(header){
+
+		var $header=$('<header class="header">')
+
+		// reformating
+
+		var exposure = {}
+		for( var p in header )
+			exposure[ p ] = header[ p ]
+
+		if( !exposure.firstName || !exposure.lastName ){
+			var m=exposure.name.trim().split(' ')
+			exposure.firstName = m.slice(0,-1).join(' ')
+			exposure.lastName = m.slice(-1).join(' ')
+		}
+
+		if( !exposure['portefolio@'] ){
+			var m = exposure.portefolio.match( /^http[s]?:\/\/(.*)[\/]?$/ )
+			if( !m || !m.length )
+				exposure['portefolio@'] = 'http://'+exposure.portefolio+'/'
+			else{
+				exposure['portefolio@'] = exposure.portefolio
+				exposure.portefolio = m[1][ m[1].length-1 ] == '/' ? m[1].substr( 0 , m[1].length-1 ) : m[1]
+			}
+		}
+
+
+		if( !exposure.age ){
+			var m = exposure.birthDate.split('/')
+			exposure.age = Math.floor( ( new Date().getTime() - parseDate( exposure.birthDate ).getTime() )/1000/60/60/24/365.24 )
+		}
+		
+		var $core = $( Mustache.render( headerTpl , exposure ) )
+
+		var $ext = $('<div class="ext-accounts">')
+
+		for( var p in header.ext )
+			$ext.append(
+				$('<a class="ext-account icon icon-'+p+'">')
+				.attr( 'href' , header.ext[ p ] )
+			)
+		
+
+		if( $ext.children().length )
+			$core.find('.card').append( $ext )
+		
+		return $core
+	}
+
+
+	var trainingTpl = [
+		'<li class="training">',
+			'<span class="title">{{title}}</span>',
+
+			'<span>&nbsp;at&nbsp;</span>',
+			'<span class="at" href="{{@at}}">{{at}}</span>',
+
+			'<span>&nbsp;in&nbsp;</span>',
+			'<span class="localisation">{{localisation}}</span>',
+			'<span class="when">{{&when}}</span>',
+		'</li>'
+	].join('')
+	var buildTraining=function(training){
+		return buildSection( function( t ){
+			var exposure = {}
+			exposure[ 'when' ] = function(){
+				return formateWhen( t.from , t.to )
+			}
+			for( var p in t )
+				exposure[ p ] = t[ p ]
+			return $(
+				Mustache.render( trainingTpl , exposure )
+			)
+		}, "training" , training , "Training"
+		)
+	}
+
+	var xpTpl = [
+		'<li class="xp">',
+			'<span class="title">{{title}}</span>',
+
+			'<span>&nbsp;at&nbsp;</span>',
+			'<a class="at" href="{{at@}}">{{at}}</a>',
+
+			//'<span>&nbsp;in&nbsp;</span>',
+			//'<span class="localisation">{{localisation}}</span>',
+			'<span class="when">{{&when}}</span>',
+			'<div>',
+				'<span class="subject">{{subject}}</span>',
+				'<span class="info">{{info}}</span>',
+			'</div>',
+		'</li>'
+	].join('')
+	var buildXp=function( xp ){
+		
+		var sxp = xp.sort(function(a,b){
+			return parseDate( a.from ) < parseDate( b.from ) ? 1 : -1
+		})
+		return buildSection( function( t ){
+			var exposure = {}
+			exposure[ 'when' ] = function(){
+				return formateWhen( t.from , t.to )
+			}
+			for( var p in t )
+				exposure[ p ] = t[ p ]
+			return $(
+				Mustache.render( xpTpl , exposure )
+			)
+		}, "xp" , sxp , "Professional Experiences"
+		)
+	}
+
+
+	var skillTpl = [
+		'<li class="skill">',
+			'<span class="title">{{title}}</span>',
+			'<span class="subject">{{subject}}</span>',
+			'<span class="info">{{info}}</span>',
+		'</li>'
+	].join('')
+	var buildSkills=function( skills , literalSkills ){
+			
+		skills = skills.sort(function(a,b){
+			return ( a.power + a.pertinance * 0.2 ) < ( b.power + b.pertinance * 0.2 ) ? 1 : -1
+		})
+
+		var $section = buildSection( function( t ){
+
+			var $e = Mustache.render( skillTpl , t )
+			return $e
+
+		}, "skills" , literalSkills , "Skills"
+		)
+
+
+		var words = [],
+			weights = []
+
+		for( var i=skills.length;i--;){
+			words[i] = skills[i].tag
+			weights[i] = skills[i].power + skills[i].pertinance * 0.3
+		}
+
+		var $cloud = cloudMaker( words , weights , {'line-height':'0.9em' , 'font-family' : 'consolas' } , {x:230,y:250} )
+
+		$cloud.children().each(function(){
+			$(this)
+			.css('color' , '#'+(Math.floor( Math.random() * 110 + 50 )*( 1 + 256 + 256*256 )).toString(16) )
+		})
+
+
+		$section.find('.list').before( $cloud )
+
+		return $section
+	}
+
+	var hobbyTpl = [
+		'<li class="hobby">',
+			'<span class="title">{{title}}</span>',
+			'<span class="subject">{{subject}}</span>',
+			'<span class="info">{{info}}</span>',
+		'</li>'
+	].join('')
+	var buildHobbies=function( hobbies ){
+		return buildSection( function( t ){
+			var exposure = {}
+			for( var p in t )
+				exposure[ p ] = t[ p ]
+			return $(
+				Mustache.render( hobbyTpl , exposure )
+			)
+		}, "hobbies" , hobbies , "Hobbies"
+		)
+	}
+
+	$cv.append( buildHeader(cv.header) )
+	$cv.append( buildTraining(cv.training) )
+	$cv.append( buildXp(cv.xp) )
+	$cv.append( buildSkills(cv.skills , cv['literal skills']) )
+	$cv.append( buildHobbies(cv.hobbies) )
+
+	$('body').append( $cv )
+})
+
+jQuery(function(){
+	$("#printable")
+	.change(function(){
+		$('.cv')
+		[ $(this).is(':checked') ? 'addClass' : 'removeClass']( 'toPrint')
+	})
+})
+
+</script>
+
+<input id="printable" type="checkbox" style="position:absolute;">
+
+</html>
