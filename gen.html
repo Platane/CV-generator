@@ -150,6 +150,7 @@ jQuery(function(){
 			'<span>&nbsp;in&nbsp;</span>',
 			'<span class="localisation">{{localisation}}</span>',
 			'<span class="when">{{&when}}</span>',
+			'<div class="info">{{sub title}}</div>',
 		'</li>'
 	].join('')
 	var buildTraining=function(training){
@@ -171,7 +172,7 @@ jQuery(function(){
 		'<li class="xp">',
 			'<span class="title">{{title}}</span>',
 
-			'<span>&nbsp;at&nbsp;</span>',
+			'<span>&nbsp;in&nbsp;</span>',
 			'<a class="at" href="{{at@}}">{{at}}</a>',
 
 			//'<span>&nbsp;in&nbsp;</span>',
@@ -284,6 +285,16 @@ jQuery(function(){
 
 </script>
 
-<input id="printable" type="checkbox" style="position:absolute;">
+<!--
+<script>
+	jQuery(function(){
+	$("#printable")
+	.change(function(){
+		$('.cv')
+		[ $(this).is(':checked') ? 'addClass' : 'removeClass']( 'toPrint')
+	})
+})
+</script>
+<input id="printable" type="checkbox" style="position:absolute;">-->
 
 </html>

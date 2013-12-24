@@ -28,6 +28,10 @@ body {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
+  padding: 0.5em;
+  box-shadow: 0 0 20px 0 #333333;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .cv > * {
@@ -175,6 +179,10 @@ li:first-child {
   text-align: justify;
 }
 
+.skill {
+  text-align: justify;
+}
+
 .at {
   font-size: 1em;
   font-family: Helvetica;
@@ -225,7 +233,28 @@ li:first-child {
 
 .cv.toPrint {
   width: 20cm;
+  max-width: none;
   height: 29cm;
+  padding: 0;
+  box-shadow: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media print {
+  .cv {
+    width: 20cm;
+    max-width: none;
+    height: 29cm;
+    padding: 0;
+    box-shadow: none;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #printable {
+    display: none;
+  }
 }
 
 @font-face {

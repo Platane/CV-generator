@@ -15,6 +15,13 @@ body
     justify-content : space-around
     align-items : stretch
 
+    padding : 0.5em
+    box-shadow : 0 0 20px 0 #333
+    margin : 
+        top : 1em
+        bottom : 1em
+
+
     &>*
         margin-top : 1.5em
         
@@ -128,6 +135,8 @@ li
 .trainning
     &>div
         text-align : justify
+.skill
+    text-align : justify
 
 .at
     font-size : 1em
@@ -165,10 +174,27 @@ li
 
 .cv.toPrint
     width : 20cm
+    max-width : none
     height : 29cm
+    padding : 0
+    box-shadow : none
+    margin : 
+        top : 0
+        bottom : 0
 
+@media print
+    .cv
+        width : 20cm
+        max-width : none
+        height : 29cm
+        padding : 0
+        box-shadow : none
+        margin : 
+            top : 0
+            bottom : 0
 
-
+    #printable
+        display : none
 
 
 @font-face
