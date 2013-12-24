@@ -22,65 +22,65 @@ var cv = {
 	"xp" : [
 
 		{
-			"title" : "Academic project",
+			"title" : "Online UML diagram editor",
 			"localisation" : "Nancy",
 			"at" : "Prometheus",
 			"at@" : "https://prometheuscomputing.com/",
 			"from" : "01/10/2013",
 			"to" : "01/03/2014",
 
-			"subject" : "realisation of a collaborative UML diagramm editor, with three budies",
-			"info" : "Use websokect to ensure the collaboration between users, web app based on AngularJs" 
+			"subject" : "An academic project, my team and I conduct a project for an external company.",
+			"info" : "The web app is based on AngularJs, use websokect to ensure the collaboration between users" 
 
 		},
 
 		{
-			"title" : "Internship",
+			"title" : "Project management web app",
 			"localisation" : "Nancy",
 			"at" : "VersysMind",
 			"at@" : "http://www.versusmind.eu/",
 			"from" : "01/04/2013",
 			"to" : "30/09/2013",
 
-			"subject" : "worked on a project management web app",
-			"info" :  "Implemented new features, optimized JS performances"
+			"subject" : "As a trainee",
+			"info" :  "I Implemented new features, optimized JS performances, put a lot of effort on ergonomic aspects"
 		},
 
 		{
-			"title" : "External Contract",
+			"title" : "html5 Turing engine game",
 			"localisation" : "Nancy",
 			"at" : "INRIA",
 			"at@" : "http://inriamecsci.github.io/#!/grains/Turing-2D",
 			"from" : "01/11/2012",
 			"to" : "01/04/2013",
 
-			"subject" : "developed a html game which expose the research of the team on the 2D Turing Engine",
-			"info" : "Many interactions, performance was a critical issue" 
+			"subject" : "As employe of my school Junior Company, I developed a game which expose the research of the team on the 2D Turing Engine",
+			"info" : "lots of interactivity, performance was a critical issue" 
 
 		},
 
 		{
-			"title" : "Academic project",
+			"title" : "Historical map editor web app",
 			"localisation" : "Nancy",
 			"at" : "CVCE",
 			"at@" : "http://www.cvce.eu/",
 			"from" : "01/10/2012",
 			"to" : "01/03/2013",
 
-			"subject" : "realisation of a online historical map editor, with three budies",
+			"subject" : "An academic project, we made an ambitious prototype of a map editor",
 			"info" : "Store the map atomic composant in a mongoDB, arrange them into a map with and add style with a css - like language. The app is based on backbone and use Leaflet" 
 
 		},
 
 		{
-			"title" : "Intership",
+			"title" : "Interactive stories editor",
 			"localisation" : "Lille",
 			"at" : "Encre Nomade",
 			"from" : "01/06/2012",
 			"to" : "01/09/2012",
 
-			"subject" : "realisation of a online historical map editor, with three budies",
-			"info" : "Store the map atomic composant in a mongoDB, arrange them into a map with and add style with a css - like language. The app is based on backbone and use Leaflet" 
+			"subject" : "As a trainee, I improved the editor of the html5 based stories",
+			"info" : "I proposed and added new features, prototyped a game engine" 
 
 		},
 	],
@@ -118,7 +118,7 @@ var cv = {
 				{
 					"title" : "other langages",
 					"subject" : "Python, Node, Java, C, php",
-					"info" : "validatd in various academic projects"
+					"info" : "validated in various academic projects"
 				}
 			]
 		},
@@ -143,7 +143,7 @@ var cv = {
 			"s" : [
 				{
 					"title" : "",
-					"subject" : "sensibilized to managing technics",
+					"subject" : "sensibilized to organisation methods",
 					"info" :  "SCRUM, Xp, ITIL"
 				}
 			]
@@ -157,7 +157,7 @@ var cv = {
 			"s":[
 				{
 					"title" : "play them",
-					"subject" : "I feel like a changement since technology is no longer a criteria and everybody can expose this idea, I like this"
+					"subject" : "I feel like a changement since technology is no longer a criteria and everybody can make  something out of his idea, I like this"
 				},
 				{
 					"title" : "make them",
@@ -168,7 +168,7 @@ var cv = {
 
 		{
 			"title" : "drawing",
-			"subject" : "My pencil case never leave me!" 
+			"subject" : "have always been a passion" 
 		},
 	],
 
