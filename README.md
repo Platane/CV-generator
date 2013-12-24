@@ -7,6 +7,8 @@ It parses a json file to generate the html cv.
 
 And look! I add a really cool word cloud for the skills!
 
+Here is the result : [CV-arthur-brongniart.html](http://arthur-brongniart.fr/Stockage/CV/CV-arthur-brongniart.html)
+
 ### Usage
 
 You may wants to modify the json to make your own CV. This should work, feel free.

@@ -68,7 +68,7 @@ var cv = {
 			"to" : "01/03/2013",
 
 			"subject" : "An academic project, we made an ambitious prototype of a map editor",
-			"info" : "Store the map atomic composant in a mongoDB, arrange them into a map with and add style with a css - like language. The app is based on backbone and use Leaflet" 
+			"info" : "Store the map atomic composants in a mongoDB, arrange them into a map and add style them with a css - like language. The app is based on backbone and use Leaflet" 
 
 		},
 
@@ -112,7 +112,7 @@ var cv = {
 			"s" : [
 				{
 					"title" : "web langages",
-					"subject" : "solid experiences with html / Js throught several decisive projects"
+					"subject" : "solid experiences with html / Js through several decisive projects"
 				},
 
 				{
@@ -168,7 +168,7 @@ var cv = {
 
 		{
 			"title" : "drawing",
-			"subject" : "have always been a passion" 
+			"subject" : "has always been a passion" 
 		},
 	],
 
