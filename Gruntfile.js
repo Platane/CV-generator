@@ -12,20 +12,25 @@ module.exports = function (grunt) {
                     style: 'expanded'
                 },
                 files: [{
-                    src: ['styles/*.sass'], 
-                    dest: 'styles/style.css', 
+                    expand: true,
+                    cwd:'styles/', 
+                    src: ['*.sass'],
+                    dest: '.tmp/styles/css-unprefixed',
+                    ext: '.css',
                 }]
             }
         },
 
         // add vendor prefix, such as -webkit- ...
         autoprefixer: {
-                multiple_files: {
-                  expand: true,
-                  flatten: true,
-                  src: 'styles/style.css',
-                  dest: 'styles',
-                },
+            multiple_files: {
+                expand: true,
+                flatten: true,
+                src: '.tmp/styles/css-unprefixed/*.css',
+                dest: 'styles/',
+                ext: '.css',
+            },
+
         },
 
 
@@ -37,7 +42,7 @@ module.exports = function (grunt) {
 
         watch: {
           options: {
-            livereload: true,
+            livereload: 4864
           },
           html: {
             files: ['*.html'],

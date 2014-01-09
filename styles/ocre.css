@@ -1,0 +1,63 @@
+.cv {
+  font-family: calibri, Helvetica, arial, freesans, clean, sans-serif;
+  color: #444444;
+  font-size: 11.8pt;
+}
+
+.cv section {
+  border-top: solid 2px #a63e14;
+  box-shadow: 0px 3px 3px -3px #bd4617 inset;
+}
+
+a {
+  color: #993913;
+}
+
+.quote {
+  font-style: italic;
+  font-family: Verdana;
+  font-size: 0.95em;
+  text-align: justify;
+  background: #faf0ec;
+  border-left: solid 6pt #a63e14;
+  color: black;
+}
+
+.quote:before {
+  color: #993913;
+  opacity: 0.3;
+}
+
+h1 {
+  color: #bd4617;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.name {
+  color: #bd4617;
+}
+
+.subsection-label,
+.title {
+  color: #993913;
+  font-size: 1.1em;
+}
+
+.subsection-1 .title {
+  color: #742b0e;
+  font-size: 0.9em;
+}
+
+.at {
+  color: #bd4617;
+}
+
+.icon {
+  color: #2c1005;
+}
+
+.info {
+  color: #742b0e;
+  font-family: Helvetica;
+}

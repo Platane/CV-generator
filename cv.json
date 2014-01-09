@@ -1,12 +1,28 @@
 var cv = {
 
+	// some stuff can be customized
 	"options" : {
 
+		// date format
+		// accept only fr
+		"formatDate" : "fr",
+
+		// custom theme to include
+		"theme" : "atlantic",
+
+		// internationalization
+		// translate the section title in your language
+		"i18n" : {
+			"experiences" : "experiences",
+			"skills" : "skills",
+			"training" : "training",
+			"hobbies" : "hobbies"
+		}
 	},
 
 	"header" : {
 		"name" : "Arthur Brongniart",
-		"birthDate" : "01/03/1991",
+		"birthDate" : "03/01/1991",
 		"mail" : "arthur@arthur-brongniart.fr",
 		"phone" : "(+33)6 98 68 67 44",
 
@@ -30,7 +46,7 @@ var cv = {
 			"to" : "01/03/2014",
 
 			"subject" : "An academic project, my team and I conduct a project for an external company.",
-			"info" : "The web app is based on AngularJs, use websokect to ensure the collaboration between users" 
+			"info" : "The web app is based on AngularJs, uses websokect to ensure the collaboration between users." 
 
 		},
 
@@ -43,19 +59,19 @@ var cv = {
 			"to" : "30/09/2013",
 
 			"subject" : "As a trainee",
-			"info" :  "I Implemented new features, optimized JS performances, put a lot of effort on ergonomic aspects"
+			"info" :  "I Implemented new features, optimized JS performances, put a lot of efforts on ergonomic aspects."
 		},
 
 		{
-			"title" : "html5 Turing engine game",
+			"title" : "Html5 Turing engine game",
 			"localisation" : "Nancy",
 			"at" : "INRIA",
 			"at@" : "http://inriamecsci.github.io/#!/grains/Turing-2D",
 			"from" : "01/11/2012",
 			"to" : "01/04/2013",
 
-			"subject" : "As employe of my school Junior Company, I developed a game which expose the research of the team on the 2D Turing Engine",
-			"info" : "lots of interactivity, performance was a critical issue" 
+			"subject" : "As employe of my school Junior Company, I developed a game which exposes the research of the team on the 2D Turing Engine.",
+			"info" : "Lots of interactivity, performance was a critical issue." 
 
 		},
 
@@ -67,8 +83,8 @@ var cv = {
 			"from" : "01/10/2012",
 			"to" : "01/03/2013",
 
-			"subject" : "An academic project, we made an ambitious prototype of a map editor",
-			"info" : "Store the map atomic composants in a mongoDB, arrange them into a map and add style them with a css - like language. The app is based on backbone and use Leaflet" 
+			"subject" : "An academic project, we made an ambitious prototype of a map editor.",
+			"info" : "Store the map's atomic components in a mongoDB, arrange them into a map and style them with a css - like language. The app is based on backbone and uses Leaflet." 
 
 		},
 
@@ -79,8 +95,8 @@ var cv = {
 			"from" : "01/06/2012",
 			"to" : "01/09/2012",
 
-			"subject" : "As a trainee, I improved the editor of the html5 based stories",
-			"info" : "I proposed and added new features, prototyped a game engine" 
+			"subject" : "As a trainee, I improved the editor of the html5 based stories.",
+			"info" : "I proposed and added new features, prototyped a game engine." 
 
 		},
 	],
@@ -89,7 +105,7 @@ var cv = {
 
 		{
 			"title" : "Engineer student",
-			"sub title" : "computer science school, software engineering section",
+			"sub title" : "computer science school, software engineering section.",
 			"at" : "Esial",
 			"localisation" : "Nancy",
 			"from" : "01/09/2010",
@@ -97,8 +113,8 @@ var cv = {
 		},
 
 		{
-			"title" : "intensive training course",
-			"sub title" : "preparing for french \"Grandes Ecoles\", Math and Physic section, computer science option",
+			"title" : "Intensive training course",
+			"sub title" : "preparing for french \"Grandes Ecoles\", Math and Physic section, computer science option.",
 			"at" : "Henri Wallon",
 			"localisation" : "Valenciennes",
 			"from" : "01/09/2008",
@@ -111,40 +127,40 @@ var cv = {
 			"subsection" : "IT skills",
 			"s" : [
 				{
-					"title" : "web langages",
-					"subject" : "solid experiences with html / Js through several decisive projects"
+					"title" : "Web langages",
+					"subject" : "Solid experiences with html / Js through several decisive projects."
 				},
 
 				{
-					"title" : "other langages",
+					"title" : "Other langages",
 					"subject" : "Python, Node, Java, C, php",
-					"info" : "validated in various academic projects"
+					"info" : "Validated in various academic projects."
 				}
 			]
 		},
 
 		{ 
-			"subsection" : "languages",
+			"subsection" : "Languages",
 			"s" : [
 				{
 					"title" : "English",
-					"subject" : "advanced level",
-					"info" : "TOEIC graduated with a 915 score"
+					"subject" : "Advanced level",
+					"info" : "TOEIC graduated with a 915 score."
 				},
 				{
 					"title" : "French",
-					"subject" : "mother tongue"
+					"subject" : "Native language"
 				}
 			]
 		},
 
 		{ 
-			"subsection" : "organisation",
+			"subsection" : "Organisation",
 			"s" : [
 				{
 					"title" : "",
-					"subject" : "sensibilized to organisation methods",
-					"info" :  "SCRUM, Xp, ITIL"
+					"subject" : "Sensibilized to organisation methods:",
+					"info" :  "SCRUM, Xp"
 				}
 			]
 		}
@@ -153,22 +169,22 @@ var cv = {
 
 	"hobbies" : [
 		{ 
-			"subsection" : "video game",
+			"subsection" : "Video game",
 			"s":[
 				{
-					"title" : "play them",
-					"subject" : "I feel like a changement since technology is no longer a criteria and everybody can make  something out of his idea, I like this"
+					"title" : "Play them",
+					"subject" : "I feel like a changement since technology is no longer a criteria and everybody can make  something out of his idea, I like this."
 				},
 				{
-					"title" : "make them",
-					"subject" : "I did some game jam events and some personal projects"
+					"title" : "Make them",
+					"subject" : "I did some game jam events and some personal projects."
 				},	
 			]
 		},
 
 		{
-			"title" : "drawing",
-			"subject" : "has always been a passion" 
+			"title" : "Drawing",
+			"subject" : "has always been a passion." 
 		},
 	],
 
@@ -176,103 +192,115 @@ var cv = {
 		{
 			"tag" : "JavaScript",
 			"power" : 8,
-			"pertinance" : 10,
+			"relevance" : 10,
 		},
 
 		{
 			"tag" : "html",
 			"power" : 8,
-			"pertinance" : 10,
+			"relevance" : 10,
 		},
 
 		{
 			"tag" : "css",
 			"power" : 8,
-			"pertinance" : 7,
+			"relevance" : 7,
 		},
 
 		{
 			"tag" : "sass",
 			"power" : 6,
-			"pertinance" : 3,
+			"relevance" : 3,
 		},
 
 		{
 			"tag" : "python",
 			"power" : 6,
-			"pertinance" : 8,
+			"relevance" : 8,
 		},
 
 		{
 			"tag" : "Java",
 			"power" : 6,
-			"pertinance" : 7,
+			"relevance" : 7,
 		},
 
 		{
 			"tag" : "Math & Phy",
 			"power" : 7,
-			"pertinance" : 8,
+			"relevance" : 8,
 		},
 
 		{
 			"tag" : "Angular",
 			"power" : 6,
-			"pertinance" : 4,
+			"relevance" : 4,
 		},
 
 		{
 			"tag" : "backbone",
 			"power" : 8,
-			"pertinance" : 4,
+			"relevance" : 4,
 		},
 
 		{
 			"tag" : "jQuery",
 			"power" : 9,
-			"pertinance" : 5,
+			"relevance" : 5,
 		},
 
 		{
 			"tag" : "node",
 			"power" : 6,
-			"pertinance" : 5,
+			"relevance" : 5,
 		},
 
 		{
 			"tag" : "Algorithm",
 			"power" : 7,
-			"pertinance" : 4,
+			"relevance" : 4,
 		},
 
 		{
 			"tag" : "Design",
 			"power" : 7,
-			"pertinance" : 4,
+			"relevance" : 4,
 		},
 
 		{
 			"tag" : "Pencil drawing",
 			"power" : 6,
-			"pertinance" : 4,
+			"relevance" : 4,
 		},
 
 		{
 			"tag" : "Git",
 			"power" : 5,
-			"pertinance" : 5,
+			"relevance" : 5,
 		},
 
 		{
 			"tag" : "Flash",
 			"power" : 7,
-			"pertinance" : 3,
+			"relevance" : 3,
 		},
 
 		{
 			"tag" : "Ergonomy",
 			"power" : 6,
-			"pertinance" : 3,
+			"relevance" : 3,
+		},
+
+		{
+			"tag" : "ThreeJs",
+			"power" : 6,
+			"relevance" : 5,
+		},
+
+		{
+			"tag" : "WebGL",
+			"power" : 4,
+			"relevance" : 4,
 		},
 	],
 

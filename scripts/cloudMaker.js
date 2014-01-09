@@ -4,6 +4,7 @@ var cloudMaker = (function(jQuery){
 var ruler = document.createElement('span')
 ruler.id = "ruler"
 ruler.style.display = "none"
+ruler.style.whiteSpace = "nowrap"
 
 jQuery(function(){
 	document.getElementsByTagName('body')[0].appendChild(ruler)
@@ -195,6 +196,7 @@ var makeElement = function( rects , css , dim ){
 		'width' : ( ( bb.right - bb.left ) * r )+'px',
 		'height' : ( ( bb.bottom - bb.top ) * r )+'px',
 	})
+	.addClass('tag-cloud')
 
 	for( var i=rects.length;i--;){
 		$('<span>')
@@ -205,6 +207,7 @@ var makeElement = function( rects , css , dim ){
 			'top' : ((rects[i].y - bb.top)*r)+'px',
 			'position' : 'absolute',
 			'font-size' : (rects[i].size*r)+'px',
+			'white-space' : 'nowrap'
 		})
 		.attr( 'data-weight' , rects[i].size*r )
 		.appendTo( $container )

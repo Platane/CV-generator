@@ -1,6 +1,7 @@
 <html>
 		
-<link rel="stylesheet" href="styles/style.css" ></link>
+<link rel="stylesheet" href="styles/core.css" ></link>
+<link rel="stylesheet" href="styles/theme.css" ></link>
 <script type="text/javascript" src="cv.json"></script>
 <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="bower_components/mustache/mustache.js"></script>
@@ -9,11 +10,23 @@
 <script type="text/javascript">
 jQuery(function(){
 
+	// add custom theme
+	if( cv.options.theme )
+		$('<link rel="stylesheet" href="styles/'+ cv.options.theme +'.css" ></link>').appendTo("html")
+
 	var $cv=$('<div class="cv">')
 
-	var parseDate=function( s ){
+	var parseDate = function( s ){
 		var m = s.split('/')
-		return  new Date( m[2] , m[1] , m[0] )
+		return  new Date( parseInt( m[2] ) , parseInt( m[1] )-1 , parseInt( m[0] ) )
+	}
+
+	var translate=function( word ){
+		return cv.options.i18n[ word ] || word;
+	}
+
+	var firstLetterUp=function( word ){
+		return word[0].toLocaleUpperCase() + word.slice(1)
 	}
 
 	var formateWhen=function( from , to ){
@@ -53,7 +66,7 @@ jQuery(function(){
 
 		return 		$('<section class="'+sectionName+'-section">')
 		.append( 
-			$('<h1 class="section-label">'+( sectionLabel || sectionName )+'</h1>'),
+			$('<h1 class="section-label">'+firstLetterUp( sectionLabel || sectionName )+'</h1>'),
 			$('<ul class="list">').append( items( json ) )
 		);
 	}
@@ -118,7 +131,6 @@ jQuery(function(){
 
 
 		if( !exposure.age ){
-			var m = exposure.birthDate.split('/')
 			exposure.age = Math.floor( ( new Date().getTime() - parseDate( exposure.birthDate ).getTime() )/1000/60/60/24/365.24 )
 		}
 		
@@ -164,7 +176,7 @@ jQuery(function(){
 			return $(
 				Mustache.render( trainingTpl , exposure )
 			)
-		}, "training" , training , "Training"
+		}, "training" , training , translate( "training" )
 		)
 	}
 
@@ -199,7 +211,7 @@ jQuery(function(){
 			return $(
 				Mustache.render( xpTpl , exposure )
 			)
-		}, "xp" , sxp , "Professional Experiences"
+		}, "xp" , sxp , translate("experiences")
 		)
 	}
 
@@ -213,25 +225,27 @@ jQuery(function(){
 	].join('')
 	var buildSkills=function( skills , literalSkills ){
 			
-		skills = skills.sort(function(a,b){
-			return ( a.power + a.pertinance * 0.2 ) < ( b.power + b.pertinance * 0.2 ) ? 1 : -1
-		})
+		
 
 		var $section = buildSection( function( t ){
 
 			var $e = Mustache.render( skillTpl , t )
 			return $e
 
-		}, "skills" , literalSkills , "Skills"
+		}, "skills" , literalSkills , translate("skills")
 		)
 
+
+		var skills = skills.sort(function(a,b){
+			return ( a.power + a.relevance * 0.3 ) > ( b.power + b.relevance * 0.3 ) ? 1 : -1
+		})
 
 		var words = [],
 			weights = []
 
 		for( var i=skills.length;i--;){
 			words[i] = skills[i].tag
-			weights[i] = skills[i].power + skills[i].pertinance * 0.3
+			weights[i] = skills[i].power + skills[i].relevance * 0.3 + Math.sqrt(i) * 0.05
 		}
 
 		var $cloud = cloudMaker( words , weights , {'line-height':'0.9em' , 'font-family' : 'consolas' } , {x:230,y:250} )
@@ -262,7 +276,7 @@ jQuery(function(){
 			return $(
 				Mustache.render( hobbyTpl , exposure )
 			)
-		}, "hobbies" , hobbies , "Hobbies"
+		}, "hobbies" , hobbies , translate("hobbies")
 		)
 	}
 
@@ -275,13 +289,7 @@ jQuery(function(){
 	$('body').append( $cv )
 })
 
-jQuery(function(){
-	$("#printable")
-	.change(function(){
-		$('.cv')
-		[ $(this).is(':checked') ? 'addClass' : 'removeClass']( 'toPrint')
-	})
-})
+
 
 </script>
 

@@ -1,14 +1,14 @@
 body
     margin : 0
-    font-family : calibri, Helvetica, arial, freesans, clean, sans-serif
-    color : #555
+    font-size : 12pt
 
 .cv
-    width : 80%
+    // size and position
     max-width : 700px
     margin-left : auto
     margin-right : auto
 
+    // flex display
     display : flex
     flex-direction : column
     flex-wrap : no-wrap
@@ -16,24 +16,25 @@ body
     align-items : stretch
 
     padding : 0.5em
-    box-shadow : 0 0 20px 0 #333
     margin : 
         top : 1em
         bottom : 1em
 
+    // cool shadow
+    box-shadow : 0 0 20px 0 #333
 
     &>*
-        margin-top : 1.5em
         
-        border-top : solid 2px #555
-
         padding :
             top : 1em
             left : 2em
-            bottom : 1em
+            bottom : 0.5em
             right : 1em
         
         position : relative
+
+        margin-top : 1.5em
+        border-top : solid 2px #555
 
         &:first-child
             margin-top: 0
@@ -43,6 +44,7 @@ header
     display : flex
     align-items : center
 
+// cards are links to socials media displayed as icons
 .card
     display : flex
     flex-direction : column
@@ -60,76 +62,52 @@ header
 
     span.icon
         font-size : 1.1em
-        //position : absolute
         margin : 0.1em
+
 
 .quote
     flex : 1
-    font : 
-        style : italic
-        family : arial
-        size : 0.95em
 
     text-align : justify
 
-    background : #f0f0f0
     padding : 1em
-    
-    border-left : solid 6pt #888
 
-    color : #000
+    text-indent : 35px
+
+    position : relative
 
     &:before
-        content : '\201c'
-        margin-right : 0.1em
-        font-size : 3em
-        line-height : 0.3em
-        vertical-align : bottom
+        content : '\201c\0A0'
+        font-size : 120px
+        position : absolute
+        left : -30px
+        line-height : 0.4
+        opacity : 0.25
+    
     &:after
-        content : '\201d'
-        font-size : 3em
-        line-height : 0em
-        vertical-align : bottom
+        content : '\201d\0A0'
+        content : ''
+    
 
+// place the h1 label outside of the box
 h1
     position : absolute
     top : -1.2em
-    font-size : 1.2em
     margin : 0
 
 
+// reset list
 ul
     margin : 0
-    //-webkit-padding-start : 0
 
 li
     list-style : none
-    margin-top : 0.3em
+    margin-top : 0.5em
     position : relative
 
     &:first-child
         margin-top : 0
 
-.phone 
-    font-family : consolas 
-
-.name
-    font :
-        weight : bold
-        size : 1.1em
-.subsection-label,
-.title
-    font-weight : bold
-
-.subject
-    color : #333
-
-.info
-    font-size : 0.9em
-    font-style : italic
-
-    &:before
-        content : ' '
 
 .xp,
 .trainning
@@ -138,24 +116,12 @@ li
 .skill
     text-align : justify
 
-.at
-    font-size : 1em
-    font-family : Helvetica
-    color : #000
-    text-decoration : none
-
+// place the date outside of the box
 .when
     position : absolute
     left : -7em
     font-size : 0.9em
-    .info
-        &:before
-            content : ''
-
-.hobby
-    .title
-        margin-right : 0.5em 
-
+// make place for the date
 .xp-section,
 .training-section
     .list
@@ -166,22 +132,19 @@ li
     display : flex
     align-items : center
 
-    .title
-        margin-right : 0.6em 
+    .tag-cloud
+        flex-shrink : 0
 
-    .list
-        flex : 1
+// space between subject and info
+.info
+    &:before
+        content : '\0A0'
 
-.cv.toPrint
-    width : 20cm
-    max-width : none
-    height : 29cm
-    padding : 0
-    box-shadow : none
-    margin : 
-        top : 0
-        bottom : 0
 
+
+/**
+ * alter before print
+ **/
 @media print
     .cv
         width : 20cm
@@ -197,6 +160,9 @@ li
         display : none
 
 
+/**
+ * icon
+ ***/
 @font-face
     font-family : 'fontello'
     src : url('../font/fontello/font/fontello.eot')
@@ -286,10 +252,3 @@ li
     content : '\e80f'
     color : #1B86BC
 
-
-.cv.theme-pined
-
-    &>*
-        background-color : #ccc
-        border-radius : 20px 20px 20px 0px
-        border : none
