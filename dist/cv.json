@@ -8,8 +8,6 @@ var cv = {
 		"formatDate" : "fr",
 
 		// custom theme to include
-		// this will inclue styles/atlantic.css to the page
-		// acecptable values are ocre ( ugly one ), atlantic ( blue ) or nothing ( the grey one )
 		"theme" : "atlantic",
 
 		// internationalization

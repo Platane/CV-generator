@@ -63,6 +63,65 @@ module.exports = function (grunt) {
           }
         },
 
+        clean: {
+            tmp : [ 
+                '.tmp' ,
+                '.sass-cache',
+            ],
+            dist : [ 
+                'dist',
+            ],
+        },
+
+        //copy file
+        copy: {
+          js: {
+            files: [
+              // copy all the js files raw
+              {
+                expand: true,
+                src:['bower_components/**/*.js','scripts/*.js','cv.json'],
+                dest: 'dist/',
+                filter: function(path){
+                    return !path.match(/(examples|docs|test|test|src|sources)/)
+                },
+              },
+              
+            ]
+          },
+          html:{
+            files: [
+              // copy the html files
+              {
+                expand: true,
+                src:['gen.html'],
+                dest: 'dist'
+              },
+            ]
+          },
+          css:{
+            files: [
+              // copy the html files
+              {
+                expand: true,
+                src:['styles/*.css'],
+                dest: 'dist/',
+              },
+            ]
+          },
+          fonts: {
+            files: [
+              // copy font
+              {
+                expand: true,
+                cwd:'font/',
+                src:['**/*.eot','**/*.svg','**/*.ttf','**/*.woff'],
+                dest: 'dist/font/'
+              },
+            ]
+          }
+        },
+
     });
 
     // load mods
@@ -75,11 +134,20 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-sass');
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('css', [ 
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
+    grunt.registerTask('scss', [ 
         'sass' ,
         'autoprefixer',
+    ]);
+
+     grunt.registerTask('build', [ 
+        'clean',
+        'sass' ,
+        'autoprefixer',
+        'copy'
     ]);
 
     grunt.registerTask('default', ['connect', 'watch']);

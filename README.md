@@ -13,7 +13,7 @@ Here is the result : [CV-arthur-brongniart.html](http://arthur-brongniart.fr/Sto
 
 You may wants to modify the json to make your own CV. This should work, feel free.
 
-
+Open the cv.json file and edit the fields.
 
 ### Credits
 
