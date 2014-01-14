@@ -171,9 +171,10 @@ li:first-child {
 }
 
 .skills-section .tag-cloud {
-  -webkit-flex-shrink: 0;
-  -ms-flex: 0 0;
-  flex-shrink: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 230px;
+  -ms-flex: 1 0 230px;
+  flex: 1 0 230px;
 }
 
 .info:before {
