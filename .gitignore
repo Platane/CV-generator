@@ -2,3 +2,5 @@ node_modules
 bower_components
 .sass-cache
 .tmp
+styles/*.css
+!dist/bower_components
